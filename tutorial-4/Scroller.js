@@ -5,6 +5,13 @@ function Scroller(stage) {
 	this.mid = new Mid();
 	stage.addChild(this.mid);
 
+	// var skater = PIXI.Sprite.fromImage('resources/skater.png');
+	// this.front = skater;
+	// stage.addChild(this.front);
+
+	var skater = PIXI.Sprite.fromImage('resources/skater.png');
+	stage.addChild(skater);
+
 	this.front = new Walls();
 	stage.addChild(this.front);
 

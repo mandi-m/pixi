@@ -9,13 +9,21 @@ function Main() {
 	this.scrollSpeed = Main.MIN_SCROLL_SPEED;
 
 	this.loadSpriteSheet();
+
+	// var skater = PIXI.Sprite.fromImage('resources/skater.png');
+	// skater.anchor.set(0.1);
+	// this.stage.addChild(skater);
+
 }
 
-Main.MIN_SCROLL_SPEED = 5;
+Main.MIN_SCROLL_SPEED = 0.1;
 Main.MAX_SCROLL_SPEED = 15;
-Main.SCROLL_ACCELERATION = 0.005;
+Main.SCROLL_ACCELERATION = 2;
 
 Main.prototype.update = function() {
+	//console.log(this.stage);
+	console.log(this.stage.children[2].position);
+	this.stage.children[2].rotation += 0.1;
 	this.scroller.moveViewportXBy(this.scrollSpeed);
 	this.scrollSpeed += Main.SCROLL_ACCELERATION;
 	if (this.scrollSpeed > Main.MAX_SCROLL_SPEED)
@@ -40,3 +48,4 @@ Main.prototype.spriteSheetLoaded = function() {
 	this.scroller = new Scroller(this.stage);
 	requestAnimationFrame(this.update.bind(this));
 };
+
